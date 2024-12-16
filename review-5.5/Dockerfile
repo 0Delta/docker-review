@@ -4,7 +4,7 @@ LABEL maintainer="vvakame@gmail.com"
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 ARG TARGETARCH
 
-ENV REVIEW_VERSION 5.9.0
+ENV REVIEW_VERSION 5.5.0
 ENV NODEJS_VERSION 20
 
 # ENV PANDOC_VERSION 2.17.1.1
@@ -81,11 +81,3 @@ RUN npm install -g playwright && rm -rf /root/.cache/ms-playwright/firefox* /roo
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
-
-RUN mkdir -p /usr/share/man/man1
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    openjdk-11-jre && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-

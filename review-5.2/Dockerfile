@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 LABEL maintainer="vvakame@gmail.com"
 
-ENV REVIEW_VERSION 3.2.0
+ENV REVIEW_VERSION 5.2.0
 ENV REVIEW_PEG_VERSION 0.2.2
 ENV NODEJS_VERSION 14
 
@@ -89,12 +89,4 @@ RUN curl -sL -o /tmp/pandoc.deb https://github.com/jgm/pandoc/releases/download/
     rm /tmp/pandoc.deb
 
 ## set cache folder to work folder (disabled by default)
-# RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf# install java
-
-RUN mkdir -p /usr/share/man/man1
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    openjdk-11-jre && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
+# RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf

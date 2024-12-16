@@ -81,11 +81,3 @@ RUN npm install -g playwright && rm -rf /root/.cache/ms-playwright/firefox* /roo
 
 ## set cache folder to work folder (disabled by default)
 # RUN mkdir -p /etc/texmf/texmf.d && echo "TEXMFVAR=/work/.texmf-var" > /etc/texmf/texmf.d/99local.cnf
-
-RUN mkdir -p /usr/share/man/man1
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    openjdk-11-jre && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
